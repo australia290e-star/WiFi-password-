@@ -4,17 +4,21 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y zip unzip openjdk-17-jdk git
           pip install buildozer
+
       - name: Build APK
         run: |
           buildozer android debug
+
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: wifipassword
           path: bin/*.apk
+          if-no-files-found: error
